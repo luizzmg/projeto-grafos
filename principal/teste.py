@@ -1,6 +1,6 @@
 import json
 
-with open("C:/Users/Luiz Miguel/Desktop/projeto/red_distances.json") as arquivo:
+with open("principal/red_distances.json") as arquivo:
   dict = json.load(arquivo)
 
 # class station():
@@ -10,4 +10,7 @@ with open("C:/Users/Luiz Miguel/Desktop/projeto/red_distances.json") as arquivo:
 #     self.seqNum
 #     self.distanceToPrev
 
-dict_list = dict["path"]
+dict_list = dict["Path"]
+
+for item in dict_list:
+  print(item)
