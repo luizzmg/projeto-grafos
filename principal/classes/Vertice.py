@@ -1,3 +1,3 @@
 class Vertice():
-  def __init__(self, lineCode, stationCode):
-    pass
+  def __init__(self, nome):
+    self.nome = nome
