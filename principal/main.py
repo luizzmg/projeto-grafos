@@ -29,11 +29,37 @@ for linha in linhas:
     if conexao not in metro.conexoes:
       metro.conexoes.append(conexao)
 
-# calcula e imprime a distância mínima entre duas estações (pelo algoritmo de bellman-ford)
-origem = "Pentagon"
-# coloquei como teste mas é para substituir pelo input ou alguma estação real da base de dados
-destino = "Farragut West"
-# coloquei como teste mas é para substituir pelo input ou alguma estação real da base de dados
-distancia_minima = metro.bellman_ford(origem, destino)
-print(f"A distância mínima entre {origem} e {destino} é {distancia_minima} pés.")
+# criei um laço para solicitar entrada do usuário para a estação de origem
+# adicionei algumas condicionais para caso ele coloque alguma estação fora da base de dados
+while True:
+    origem = input("")
+    if origem in metro.vertices:
+        break
+    else:
+        print("Estação não encontrada. Por favor, insira uma estação válida.")
+
+# criei um laço para solicitar entrada do usuário para a estação de destino
+# e adicionei algumas condicionais para caso ele coloque alguma estação fora da base de dados ou igual a origem
+while True:
+    destino = input("")
+    if destino in metro.vertices and destino != origem:
+        break
+    elif destino == origem:
+        print("A estação de destino deve ser diferente da estação de origem.")
+    else:
+        print("Estação não encontrada. Por favor, insira uma estação válida.")
+
+# agora sim ele calcula e imprime a distância mínima e o trajeto entre as estações (pelo algoritmo de Bellman-Ford)
+distancia_minima, trajeto = metro.bellman_ford(origem, destino, retornar_trajeto=True)
+# adicionei o retornar trajeto para imprimir no fim da solicitação
+print(f"A distância mínima entre {origem} e {destino} é {distancia_minima}.")
+
+# aqui imprime o trajeto que falei, para deixar claro o percurso de uma estação para outra
+if trajeto:
+    print("Trajeto:")
+    for estacao in trajeto:
+        print(estacao)
+# caso não haja caminhos válidos      
+else:
+    print("Não há um caminho válido entre as estações.")
 
