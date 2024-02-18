@@ -13,14 +13,13 @@ class Grafo():
       self.matriz[vertice.nome].update({anterior: False})
     
     self.matriz[vertice.nome].update({vertice.nome: False})
-
   
-  def ligar(self, a, b):
+  def ligar(self, a, b, distancia):
     try:
-      self.matriz[a][b] = True
+      self.matriz[a][b] = distancia
 
     except:
-      self.matriz[b][a] = True
+      self.matriz[b][a] = distancia
   
   def check_adj(self, a, b):
     try: return self.matriz[a][b]

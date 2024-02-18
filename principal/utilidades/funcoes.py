@@ -1,5 +1,6 @@
 import json
 from utilidades.grafo import Grafo
+from utilidades.vertice import Vertice
 
 def json_para_dict(endereco_arq):
 
@@ -8,16 +9,8 @@ def json_para_dict(endereco_arq):
 
   return dict[list(dict.keys())[0]]
 
-def criar_vertices(endereco_arq):
-  print(json_para_dict(endereco_arq))
-
-  
-  return
-
-  pass
-
 def main():
-  criar_vertices("C:/Users/Luiz Miguel/Desktop/projeto-grafos/principal/database/as_estacoes.json")
+  pass
 
 if __name__ == "__main__":
   main()
