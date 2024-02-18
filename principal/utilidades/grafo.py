@@ -1,4 +1,4 @@
-from Vertice import Vertice
+from utilidades.vertice import Vertice
 
 class Grafo():
   def __init__(self):
@@ -29,25 +29,29 @@ class Grafo():
 
 # daqui pra baixo é teste
 
-metro = Grafo()
+def main():
+  metro = Grafo()
 
-metro.add_vert(Vertice("Joana Bezerra"))
-metro.add_vert(Vertice("Camaragibe"))
-metro.add_vert(Vertice("Jaboatão"))
-metro.add_vert(Vertice("Cajueiro Seco"))
+  metro.add_vert(Vertice("Joana Bezerra"))
+  metro.add_vert(Vertice("Camaragibe"))
+  metro.add_vert(Vertice("Jaboatão"))
+  metro.add_vert(Vertice("Cajueiro Seco"))
 
-for a in metro.matriz.keys():
-  print(a, "aponta para", metro.matriz[a])
+  for a in metro.matriz.keys():
+    print(a, "aponta para", metro.matriz[a])
 
 
-print("\n\n\n\n")
+  print("\n\n\n\n")
 
-print("A adj entre JB e CMRGB")
+  print("A adj entre JB e CMRGB")
 
-print(metro.check_adj("Camaragibe", "Joana Bezerra"))
+  print(metro.check_adj("Camaragibe", "Joana Bezerra"))
 
-metro.ligar("Camaragibe", "Joana Bezerra")
+  metro.ligar("Camaragibe", "Joana Bezerra")
 
-print("A adj entre JB e CMRGB")
+  print("A adj entre JB e CMRGB")
 
-print(metro.check_adj("Camaragibe", "Joana Bezerra"))
+  print(metro.check_adj("Camaragibe", "Joana Bezerra"))
+
+if __name__ == "__main__":
+  main()
