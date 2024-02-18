@@ -19,6 +19,11 @@ BLUE = (0, 0, 255)
 # Defina as coordenadas dos círculos como uma lista de tuplas (x, y)
 circle_positions = [(100, 100), (200, 200), (300, 300)]
 
+def escrever(texto, tamanho, coordenada, cor):
+  text_surface = pygame.font.Font(None, int(2*zoom_factor)).render(estacao.nome, True, BLACK)
+  text_rect = text_surface.get_rect(topleft=(x-10*zoom_factor, y - 3*zoom_factor))  # Posição do texto na tela
+  screen.blit(text_surface, text_rect) 
+
 # Crie a janela
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Círculos em Coordenadas")
@@ -32,7 +37,14 @@ move_hori = 0
 move_vert = 0
 movimento = 15
 
-pygame.key.set_repeat(100, 30)
+# Fonte e tamanho
+font = pygame.font.Font(None, 32)
+
+# Variável para armazenar o texto
+input_text = ''
+
+# para conseguir repetir uma tecla segurando ela
+pygame.key.set_repeat(300, 30)
 
 # Loop principal
 while True:
@@ -45,7 +57,7 @@ while True:
     elif event.type == pygame.KEYDOWN:
       # Zoom in
       if event.key == pygame.K_PAGEUP:
-        zoom_factor *= 0.1
+        zoom_factor += 0.1
         move_hori -= 50
         move_vert -= 30
       # Zoom out
@@ -55,6 +67,10 @@ while True:
         move_vert += 30
 
       movimento = (zoom_factor/3)*15
+
+
+      # Verifique se o botão esquerdo do mouse está sendo pressionado
+      mouse_pressed = pygame.mouse.get_pressed()
 
       # mover direita
       if event.key == pygame.K_RIGHT:
@@ -74,9 +90,21 @@ while True:
   # Preencha o fundo com a cor branca
   screen.fill(WHITE)
   
-  for loc in estacoes:
-    coord = (loc[0]*zoom_factor + move_hori, loc[1]*zoom_factor + move_vert)
-    pygame.draw.circle(screen, BLACK, coord, 5)  
+  # Obtenha a posição atual do mouse
+  # mouse_pos = pygame.mouse.get_pos()
+  
+  # move_hori, move_vert = mouse_pos
+  
+  for estacao in metro.vertices.values():
+    loc = estacao.coordenada
+
+    x = loc[0]*zoom_factor + move_hori
+    y = loc[1]*zoom_factor + move_vert
+    
+    coord = (x, y)
+    pygame.draw.circle(screen, BLACK, coord, 5)
+
+    escrever(estacao.nome, 2*zoom_factor, (x-10*zoom_factor, y-3*zoom_factor), BLACK)
   
   for linha in metro.conexoes:
     xa = linha[0][0]*zoom_factor + move_hori
@@ -89,6 +117,9 @@ while True:
 
     pygame.draw.line(screen, BLACK, (xa,ya), (xb,yb), espessura)
 
+    text_surface = pygame.font.Font(None, int(10)).render("Pg Up - zoom in", True, BLACK)
+    text_rect = text_surface.get_rect(topleft=(10,10))  # Posição do texto na tela
+    screen.blit(text_surface, text_rect) 
 
   # Atualize a tela
   pygame.display.flip()
