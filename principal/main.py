@@ -9,7 +9,7 @@ metro = Grafo()
 
 # colocando as estações no grafo (no metrô)
 for estacao in json_para_dict(endereco_estacoes):
-  metro.add_vert(Vertice(estacao["Name"], (estacao["Lat"], estacao["Lon"])))
+  metro.add_vert(Vertice(estacao["Name"], estacao["Lat"], estacao["Lon"]))
 
 # definindo as distâncias entre elas
 linhas = ["blue", "green", "orange", "red", "silver", "yellow"]
