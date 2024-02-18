@@ -2,6 +2,7 @@ class Grafo():
   def __init__(self):
     self.matriz = {}
     self.vertices = {}
+    self.conexoes = []
   
   # adiciona um vértice (recebe o objeto de um vértice)
   def add_vert(self, vertice):
