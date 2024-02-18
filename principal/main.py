@@ -21,3 +21,11 @@ for linha in linhas:
     # pegando o nome de uma, o nome de outra, e colocando a distancia entre elas
     metro.ligar(dici[i-1]["StationName"],dici[i]["StationName"],dici[i]["DistanceToPrev"])
 
+# calcula e imprime a distância mínima entre duas estações (pelo algoritmo de bellman-ford)
+origem = "Estação A"
+# coloquei como teste mas é para substituir pelo input ou alguma estação real da base de dados
+destino = "Estação D"
+# coloquei como teste mas é para substituir pelo input ou alguma estação real da base de dados
+distancia_minima = metro.bellman_ford(origem, destino)
+print(f"A distância mínima entre {origem} e {destino} é {distancia_minima}.")
+
