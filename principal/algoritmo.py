@@ -2,8 +2,8 @@ from utilidades.grafo import Grafo
 from utilidades.vertice import Vertice
 from utilidades.funcoes import *
 
-endereco_estacoes = "C:/Users/Luiz Miguel/Desktop/projeto-grafos/principal/database/as_estacoes.json"
-pasta_linhas = "C:/Users/Luiz Miguel/Desktop/projeto-grafos/principal/database/"
+endereco_estacoes = "/projeto-grafos/principal/database/as_estacoes.json"
+pasta_linhas = "/projeto-grafos/principal/database/"
 
 metro = Grafo()
 
