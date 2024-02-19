@@ -33,6 +33,6 @@ No arquivo "algoritmo.py", caso encontre algum erro, modifique o caminho para os
 
 ## Imagens do projeto rodando:
 
-<img src="principal/assets/print-1.png">
+<img src="principal/assets/print.png">
 <img src="principal/assets/print-2.png">
 
