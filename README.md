@@ -14,7 +14,7 @@ O nome do projeto é um trocadilho com o verbo em inglês "wash" que significa l
 
 ## Funcionalidade: 
 
-Para reproduzir o projeto, utilize o arquivo “interface.py”. Sendo assim, ao rodar o código, você deve inserir qual a estação de origem e, logo após, qual a estação de destino. Se a entrada oferecida não estiver contida na base de dados, o programa não irá reconhecer. Portanto, ao preencher as informações, certifique-se de que o projeto embarca as estações de metrô da cidade de Washington. Logo, após inserir as estações de origem e destino, o código mostra no mapa o menor trajeto entre as estações escolhidas e a distância entre elas. Você pode dar zoom no mapa utilizando as teclas PgUp/Dn e as setas para movimentar. O trajeto estará destacado na cor laranja.
+Para reproduzir o projeto, utilize o arquivo “main.py”. Logo, ao rodar o código, você deve inserir qual a estação de origem e, logo após, qual a estação de destino. Se a entrada oferecida não estiver contida na base de dados, o programa não irá reconhecer. Portanto, ao preencher as informações, certifique-se de que o projeto embarca as estações de metrô da cidade de Washington. Logo, após inserir as estações de origem e destino, o código mostra no mapa o menor trajeto entre as estações escolhidas e a distância entre elas em KM. Você pode dar zoom no mapa utilizando as teclas PgUp/Dn e as setas para movimentar. O trajeto estará destacado na cor laranja.
 
 ## Organização do projeto: 
 
@@ -26,6 +26,10 @@ No geral, a base de dados contém, além de todas as estações de metrô da cid
 ## Ferramentas, Bibliotecas e Frameworks utilizados: 
 
 Desenvolvemos o projeto criando um grafo, onde cada vértice representa uma estação de metrô e cada aresta entre estes vértices tem como peso a distância entre eles. Criando assim, a reprodução da malha ferroviária da cidade de Washington e tornando possível a realização do algoritmo. Com isso, utilizamos as bibliotecas JSON para ler a base de dados, Sys para utilidades da janela e Pygame para exibir o programa.
+
+## Observação:
+
+No arquivo "algoritmo.py", caso encontre algum erro, modifique o caminho para os dos arquivos JSON.
 
 ## Imagens do projeto rodando:
 
