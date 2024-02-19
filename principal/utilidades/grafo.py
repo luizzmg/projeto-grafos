@@ -20,7 +20,7 @@ class Grafo():
     except: return None
 
   # função para a realização do algortimo bellman-ford
-  def bellman_ford(self, origem, destino):
+  def bellman_ford(self, origem, destino, retornar_trajeto=False):
       distancias = {v: float('inf') for v in self.vertices}
       predecessores = {v: None for v in self.vertices}
       distancias[origem] = 0
@@ -39,7 +39,7 @@ class Grafo():
                   raise ValueError("O grafo contém um ciclo de peso negativo.")
 
       # agora imprime o caminho mínimo (opcional)
-      caminho = self.construir_caminho(origem, destino, predecessores)
+      caminho = self.construir_caminho(origem, destino, predecessores) if retornar_trajeto else None
 
       return distancias[destino], caminho
 
