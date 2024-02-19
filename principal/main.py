@@ -37,20 +37,20 @@ def main():
   while True:
     origem = input("")
     if origem in metro.vertices:
-        break
+      break
     else:
-        print("Estação não encontrada. Por favor, insira uma estação válida.")
+      print("Estação não encontrada. Por favor, insira uma estação válida.")
 
   # criei um laço para solicitar entrada do usuário para a estação de destino
   # e adicionei algumas condicionais para caso ele coloque alguma estação fora da base de dados ou igual a origem
   while True:
     destino = input("")
     if destino in metro.vertices and destino != origem:
-        break
+      break
     elif destino == origem:
-        print("A estação de destino deve ser diferente da estação de origem.")
+      print("A estação de destino deve ser diferente da estação de origem.")
     else:
-        print("Estação não encontrada. Por favor, insira uma estação válida.")
+      print("Estação não encontrada. Por favor, insira uma estação válida.")
 
   # agora sim ele calcula e imprime a distância mínima e o trajeto entre as estações (pelo algoritmo de Bellman-Ford)
   distancia_minima, trajeto = metro.bellman_ford(origem, destino, retornar_trajeto=True)
@@ -61,7 +61,7 @@ def main():
   if trajeto:
     print("Trajeto:")
     for estacao in trajeto:
-        print(estacao)
+      print(estacao)
   # caso não haja caminhos válidos      
   else:
     print("Não há um caminho válido entre as estações.")
