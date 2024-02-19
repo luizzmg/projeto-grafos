@@ -68,10 +68,6 @@ while True:
 
       movimento = (zoom_factor/3)*15
 
-
-      # Verifique se o botão esquerdo do mouse está sendo pressionado
-      mouse_pressed = pygame.mouse.get_pressed()
-
       # mover direita
       if event.key == pygame.K_RIGHT:
         move_hori -= movimento
@@ -104,7 +100,7 @@ while True:
     coord = (x, y)
     pygame.draw.circle(screen, BLACK, coord, 5)
 
-    escrever(estacao.nome, 2*zoom_factor, (x-10*zoom_factor, y-3*zoom_factor), BLACK)
+    escrever(estacao.nome, 2*zoom_factor, ((x-10)*zoom_factor, (y-3)*zoom_factor), BLACK)
   
   for linha in metro.conexoes:
     xa = linha[0][0]*zoom_factor + move_hori
