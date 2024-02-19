@@ -30,10 +30,12 @@ for linha in linhas:
       metro.conexoes.append(conexao)
 
 
-def main():
+def algoritmo_final(origem, destino, grafo):
 
   # criei um laço para solicitar entrada do usuário para a estação de origem
   # adicionei algumas condicionais para caso ele coloque alguma estação fora da base de dados
+
+  """
   while True:
     origem = input("")
     if origem in metro.vertices:
@@ -52,8 +54,10 @@ def main():
     else:
       print("Estação não encontrada. Por favor, insira uma estação válida.")
 
+  """
+      
   # agora sim ele calcula e imprime a distância mínima e o trajeto entre as estações (pelo algoritmo de Bellman-Ford)
-  distancia_minima, trajeto = metro.bellman_ford(origem, destino, retornar_trajeto=True)
+  distancia_minima, trajeto = grafo.bellman_ford(origem, destino, retornar_trajeto=True)
   # adicionei o retornar trajeto para imprimir no fim da solicitação
   print(f"A distância mínima entre {origem} e {destino} é {distancia_minima}.")
 
@@ -65,7 +69,5 @@ def main():
   # caso não haja caminhos válidos      
   else:
     print("Não há um caminho válido entre as estações.")
-
-
-if __name__ == "__main__":
-  main()
+  
+  return trajeto

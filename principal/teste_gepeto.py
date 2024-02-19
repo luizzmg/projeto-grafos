@@ -1,4 +1,0 @@
-
-
-def resultado():
-  print("terminou")

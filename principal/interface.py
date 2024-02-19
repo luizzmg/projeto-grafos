@@ -44,7 +44,7 @@ font = pygame.font.Font(None, 32)
 input_text = ''
 
 # para conseguir repetir uma tecla segurando ela
-pygame.key.set_repeat(300, 30)
+pygame.key.set_repeat(300, 20)
 
 # Loop principal
 while True:
@@ -112,7 +112,7 @@ while True:
     coord = (x, y)
     pygame.draw.circle(screen, BLACK, coord, 5)
 
-    escrever(estacao.nome, 2*zoom_factor, (x+10, y-3), BLACK)
+    escrever(estacao.nome, 3*zoom_factor, (x+10, y-3), BLACK)
   
   for linha in metro.conexoes:
     xa = linha[0][0]*zoom_factor + move_hori
@@ -121,31 +121,45 @@ while True:
     xb = linha[1][0]*zoom_factor + move_hori
     yb = linha[1][1]*zoom_factor + move_vert
 
-    espessura = 2
+    espessura = 3
 
     pygame.draw.line(screen, BLACK, (xa,ya), (xb,yb), espessura)
 
-  pygame.draw.rect(screen, (230,230,230),(0,00,150+ max(len(input_text),len(origem), len(destino))*25,90))
+  if origem == "" and destino == "":
+    pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
+    escrever("Origem: "+input_text, 50, (10,10), BLACK)
+    escrever("Destino: ", 50, (10,55), BLACK)
 
-  if origem == "":
+  elif origem in metro.vertices.keys() and destino == "":
+    pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
+    escrever("Origem: "+origem+" - ok", 50, (10,10), BLACK)
+    escrever("Destino: "+input_text, 50, (10,55), BLACK)
+  
+  elif destino in metro.vertices.keys():
+
+    if not resolveu:
+      trajeto = algoritmo_final(origem, destino, metro)
+      resolveu = True
+
+    for i in range(1,len(trajeto)):
+      coord_ori = metro.vertices[trajeto[i-1]].coordenada
+      coord_dest = metro.vertices[trajeto[i]].coordenada
+      
+      x_ori, y_ori = coord_ori
+      x_dest, y_dest = coord_dest
+
+      pygame.draw.line(screen, WHITE, (x_ori*zoom_factor + move_hori,y_ori*zoom_factor + move_vert), (x_dest*zoom_factor + move_hori,y_dest*zoom_factor + move_vert), espessura-2)
+    
+    pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
+    escrever("Origem: "+origem+" - ok", 50, (10,10), BLACK)
+    escrever("Destino: "+destino+" - ok", 50, (10,55), BLACK)
+
+  else:
+    destino = ""
+    origem = ""
+    pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
     escrever("Origem: "+input_text, 50, (10,10), BLACK)
     escrever("Destino: ", 50, (10,55), BLACK)
   
-  elif destino == "":
-    escrever("Origem: "+origem+" +", 50, (10,10), BLACK)
-    escrever("Destino: "+input_text, 50, (10,55), BLACK)
-  
-  else:
-    escrever("Origem: "+origem+" +", 50, (10,10), BLACK)
-    escrever("Destino: "+destino+" +", 50, (10,55), BLACK)
-
-    if not resolveu:
-      # colocar aqui a chamada para o algoritmo
-      pass
-
-    
-    
-  # escrever("Estação de origem: "+input_text, )  
-
   # Atualizar a tela
   pygame.display.flip()
