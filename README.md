@@ -1,1 +1,1 @@
-# Arquivo a ser executado: interface.py
+# Arquivo a ser executado: main.py
