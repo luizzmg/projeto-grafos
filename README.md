@@ -29,7 +29,7 @@ Desenvolvemos o projeto criando um grafo, onde cada vértice representa uma esta
 
 ## Observação:
 
-No arquivo "algoritmo.py", caso encontre algum erro, modifique o caminho para os dos arquivos JSON.
+No arquivo "algoritmo.py", caso encontre algum erro, modifique o caminho para os arquivos JSON.
 
 ## Imagens do projeto rodando:
 
