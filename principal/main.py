@@ -70,4 +70,4 @@ def algoritmo_final(origem, destino, grafo):
   else:
     print("Não há um caminho válido entre as estações.")
   
-  return trajeto
+  return [trajeto, distancia_minima]

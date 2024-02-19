@@ -19,6 +19,7 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+ORANGE = (255, 165, 0)
 
 # Definindo as coordenadas dos círculos como uma lista de tuplas (x, y)
 circle_positions = [(100, 100), (200, 200), (300, 300)]
@@ -30,7 +31,7 @@ def escrever(texto, tamanho, coordenada, cor):
 
 # Criando a janela
 screen = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("Círculos em Coordenadas")
+pygame.display.set_caption("The Wash Way")
 
 zoom_factor = 1
 move_hori = 0
@@ -138,7 +139,7 @@ while True:
   elif destino in metro.vertices.keys():
 
     if not resolveu:
-      trajeto = algoritmo_final(origem, destino, metro)
+      trajeto, distancia_minima = algoritmo_final(origem, destino, metro)
       resolveu = True
 
     for i in range(1,len(trajeto)):
@@ -148,11 +149,21 @@ while True:
       x_ori, y_ori = coord_ori
       x_dest, y_dest = coord_dest
 
-      pygame.draw.line(screen, WHITE, (x_ori*zoom_factor + move_hori,y_ori*zoom_factor + move_vert), (x_dest*zoom_factor + move_hori,y_dest*zoom_factor + move_vert), espessura-2)
+      pygame.draw.line(screen, ORANGE, (x_ori*zoom_factor + move_hori,y_ori*zoom_factor + move_vert), (x_dest*zoom_factor + move_hori,y_dest*zoom_factor + move_vert), espessura-2)
     
     pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
     escrever("Origem: "+origem+" - ok", 50, (10,10), BLACK)
     escrever("Destino: "+destino+" - ok", 50, (10,55), BLACK)
+
+    pygame.draw.rect(screen, (230,230,230),(0,HEIGHT - 45, WIDTH,45))
+    percorrido_km = "{:.2f}".format(distancia_minima*0.3048/1000)
+    escrever("Melhor trajeto: "+percorrido_km+" km", 50, (10,HEIGHT-40), BLACK)
+
+  elif origem in metro.vertices.keys() and destino not in metro.vertices.keys():
+    destino = ""
+    pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
+    escrever("Origem: "+origem+" - ok", 50, (10,10), BLACK)
+    escrever("Destino: "+input_text, 50, (10,55), BLACK)
 
   else:
     destino = ""
@@ -160,6 +171,11 @@ while True:
     pygame.draw.rect(screen, (230,230,230),(0,0, WIDTH,90))
     escrever("Origem: "+input_text, 50, (10,10), BLACK)
     escrever("Destino: ", 50, (10,55), BLACK)
+  
+  pygame.draw.rect(screen, (20,20,20),(WIDTH/1.5,0, WIDTH/3,90))
+  escrever("PgUp/Dn - zoom", 40, (WIDTH/1.5,10), WHITE)
+  escrever("Setas - movimentar", 40, (WIDTH/1.5,55), WHITE)
+
   
   # Atualizar a tela
   pygame.display.flip()
