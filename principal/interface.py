@@ -1,6 +1,6 @@
 import pygame
 import sys
-from main import metro
+from main import *
 
 origem = ""
 destino = ""
@@ -138,6 +138,10 @@ while True:
   else:
     escrever("Origem: "+origem+" +", 50, (10,10), BLACK)
     escrever("Destino: "+destino+" +", 50, (10,55), BLACK)
+
+    if not resolveu:
+      # colocar aqui a chamada para o algoritmo
+      pass
 
     
     
