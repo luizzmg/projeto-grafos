@@ -2,7 +2,7 @@
 
 <img src="principal/assets/logo.png">
 
-O projeto "The Wash Way" foi desenvolvido inteiramente com a utilização da linguagem Python e a adoção de algumas bibliotecas, sendo a principal o Pygame. O projeto tem por finalidade calcular o menor trajeto entre dois pontos, utilizando os conceitos lógicos de grafos e, sobretudo, o algoritmo de Bellman-Ford como principal ferramenta. Utilizamos como suporte a base de dados pública do metrô de Washington D.C. para dar vida ao nosso código e poder realizar as funções necessárias. Sendo assim, cada vértice do grafo se comporta como uma estação de metrô e cada aresta determina a distância entre essas estações. O projeto, mentorado pelo professor Sérgio Queiroz, foi feito a fim da obtenção da nota relativa ao projeto de grafos da disciplina de Algoritmos e Estrutura de Dados do curso de Sistemas de Informação na Universidade Federal de Pernambuco.
+O projeto "The Wash Way" foi desenvolvido inteiramente com a utilização da linguagem Python e a adoção de algumas bibliotecas, sendo as principais JSON, Sys e Pygame. O projeto tem por finalidade calcular o menor trajeto entre dois pontos, utilizando os conceitos lógicos de grafos e, sobretudo, o algoritmo de Bellman-Ford como principal ferramenta. Utilizamos como suporte a base de dados pública do metrô de Washington D.C. para dar vida ao nosso código e poder realizar as funções necessárias. Sendo assim, cada vértice do grafo se comporta como uma estação de metrô e cada aresta determina a distância entre essas estações. O projeto, mentorado pelo professor Sérgio Queiroz, foi feito a fim da obtenção da nota relativa ao projeto de grafos da disciplina de Algoritmos e Estrutura de Dados do curso de Sistemas de Informação na Universidade Federal de Pernambuco.
 
 ## Motivações:
 
@@ -14,7 +14,26 @@ O nome do projeto é um trocadilho com o verbo em inglês "wash" que significa l
 
 ## Funcionalidade: 
 
-Para reproduzir o projeto, utilize o arquivo “main.py”. Logo, ao rodar o código, você deve inserir qual a estação de origem e, logo após, qual a estação de destino. Se a entrada oferecida não estiver contida na base de dados, o programa não irá reconhecer. Portanto, ao preencher as informações, certifique-se de que o projeto embarca as estações de metrô da cidade de Washington. Logo, após inserir as estações de origem e destino, o código mostra no mapa o menor trajeto entre as estações escolhidas e a distância entre elas em KM. Você pode dar zoom no mapa utilizando as teclas PgUp/Dn e as setas para movimentar. O trajeto estará destacado na cor laranja.
+Para a execução do código, é necessário:
+
+1. Ter o python instalado em sua máquina.
+
+2. Instalar a dependência pygame:
+```bash
+pip install pygame
+```
+
+3. Entrar na pasta principal:
+```bash
+cd '.\principal\'
+```
+
+4. Iniciar o jogo:
+```bash
+main.py
+```
+
+Logo, ao rodar o código, você deve inserir qual a estação de origem e, logo após, qual a estação de destino. Se a entrada oferecida não estiver contida na base de dados, o programa não irá reconhecer. Portanto, ao preencher as informações, certifique-se de que o projeto embarca as estações de metrô da cidade de Washington. Logo, após inserir as estações de origem e destino, o código mostra no mapa o menor trajeto entre as estações escolhidas e a distância entre elas em KM. Você pode dar zoom no mapa utilizando as teclas PgUp/Dn e as setas para movimentar. O trajeto estará destacado na cor laranja.
 
 ## Organização do projeto: 
 
